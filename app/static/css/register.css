@@ -1,0 +1,166 @@
+body {
+    font-family: 'Arial';
+    background-color: #f2f2f2 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    gap: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.register-container {
+    width: 800px;
+    height: 570px;
+    background-color: #fff;
+    padding: 20px 40px;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.btn-submit {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid orangered;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    color: white;
+    background-color: orangered;
+}
+.register-link{
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a{
+    color: orangered;
+    text-decoration: none;
+}
+
+.register-link a:hover{
+    text-decoration: underline;
+}
+.logos{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-size: cover;
+    background-image: url();
+} 
+.logos .text h1{
+    font-size: 2rem;
+    margin-left: 50%;
+}
+.logos .img img{
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    margin-left: 35%;
+}
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alert.success {
+    background-color: #28a745;
+}
+
+.alert.danger {
+    background-color: #dc3545;
+}
+
+.alert.info {
+    background-color: #17a2b8;
+}
+
+.flash-messages .alert-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.alert-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

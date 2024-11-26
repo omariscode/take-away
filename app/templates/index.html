@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Away</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logos">
+            <div class="img"><img src="{{ url_for('static', filename='image/iconLogo.svg') }}" alt=""></div>
+            <div class="logo">Take Away</div>            
+        </div>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/login" class="login">Log In</a></li>
+            </ul>
+        </div> 
+    </nav> 
+    <main>
+        <div class="content-slide">
+            <div class="slide">
+                <input type="radio" name="radio" id="radio1" checked>
+                <input type="radio" name="radio" id="radio2">
+                <input type="radio" name="radio" id="radio3">
+                <input type="radio" name="radio" id="radio4">
+                <input type="radio" name="radio" id="radio5">
+
+                <div class="slides first">
+                    <img src="{{ url_for('static', filename='image/slide.png') }}" alt="">
+                </div>
+                <div class="slides">
+                    <img src="{{ url_for('static', filename='image/slide2.jpg') }}" alt="">
+                </div>
+                <div class="slides">
+                    <img src="{{ url_for('static', filename='image/slide3.jpg') }}" alt="">
+                </div>
+                <div class="slides">
+                    <img src="{{ url_for('static', filename='image/slide4.jpg') }}" alt="">
+                </div>
+                <div class="slides">
+                    <img src="{{ url_for('static', filename='image/slide5.jpg')}}" alt="">
+                </div>
+
+                <div class="auto-navigation">
+                    <div class="outo_btn1"></div>
+                    <div class="outo_btn2"></div>
+                    <div class="outo_btn3"></div>
+                    <div class="outo_btn4"></div>
+                    <div class="outo_btn5"></div>
+                </div>
+            </div>
+            <div class="navigation">
+                <label for="radio1" class="nav-item name1"></label>
+                <label for="radio2" class="nav-item name2"></label>
+                <label for="radio3" class="nav-item name3"></label>
+                <label for="radio4" class="nav-item name4"></label>
+                <label for="radio5" class="nav-item name5"></label>
+            </div>
+        </div>
+    </main>
+    <div class="werbing">
+        <div class="slogan">
+            <p>
+                Seu mercado para compartilhamento e negociação:
+                compre e venda perfeitamente em uma plataforma voltada para a comunidade!
+            </p>
+        </div>
+    </div>
+    <section class="about-us">
+        <div class="container">
+            <h1>Sobre nós</h1>
+            <div class="content">
+                <div class="img">
+                    <img src="{{ url_for('static', filename='image/logo.svg') }}" alt="" srcset="">
+                </div>
+                <div class="text">
+                    <p>Take Away é uma plataforma online onde membros da comunidade Angolana podem comprar e vender pertences usados. O site promove o comércio sustentável, incentivando a reutilização e a reciclagem de itens, ao mesmo tempo que fortalece laços comunitários.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq">
+        <div class="container">
+            <h1>FAQs</h1>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Porquê não há como pagar diretamente pelo site?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p> Decidimos tirar a opção de pagamento diretamente do site por motivos de segurança a conta de nossos clientes e para evitar burlas, tudo para proteger clientes.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Como será feito o pagamento?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Tirando a opção de fazer pagamento diretamente pelo site, nós viemos com uma solução atona. Todos os vendedores terão os seus contactos nos seus perfis, permitindo então eles se contactarem entre eles atráves da mesma, fazendo as suas negociações e pagamentos de forma privada e segura.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>O que pode se vender no site?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Nesse site, o cliente ou úsuario pode vender qualquer coisa que ele achar rendivel pra si, desde coisas novas e até mesmo coisas usadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <footer>
+        <div class="local">
+            <h1>Instituicional</h1>
+            <p>Como vender</p>
+            <p>Segurança</p>
+            <p>Envio</p>
+            <p>Notícias</p>
+        </div>
+        <div class="local">
+            <h1>Fale connosco</h1>
+            <p>+ 244 950 787 059</p>
+            <p>omarscode007@gmail.com</p>
+            <p>Aberto de segunda - domingo 24/24</p>
+        </div>
+        <div class="local">
+            <h1>Ajuda</h1>
+            <p>FAQs</p>
+            <p>Política e Privacidade</p>
+            <p>Termos de utilização</p>
+        </div>
+        <div class="local">
+            <h1>Take Away</h1>
+            <div class="media-social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+        <div class="terminal">
+            <p>© 2024 Take Away. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: Omar's Code</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Away</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/iconLogo.svg') }}" type="image/x-icon">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <nav class="navbar">
+        <div class="logos">
+            <div class="img"><img src="{{ url_for('static', filename='image/iconLogo.svg') }}" alt="Logo"></div>
+            <div class="logo">Take Away</div>            
+        </div>
+        {% if current_user.is_authenticated %}  
+        <div class="profile-menu" id="profileMenu">
+            <div class="formulario">
+                <p>{{ current_user.name }}</p>
+                <p>{{ current_user.email }}</p>
+                <a href="{{ url_for('profile_page', id=current_user.id) }}">Perfil</a>
+                <a href="#">Meus produtos</a>
+                <a href="#">Produtos gostados</a>
+                <a href="#">Notificação</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="profile-menu" id="profileMenu">
+            <div class="formulario">
+                <a href="#">Perfil</a>
+                <a href="#">Meus produtos</a>
+                <a href="#">Produtos gostados</a>
+                <a href="#">Notificação</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/loja">Loja</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#contact">Contactos</a></li>                
+            </ul>
+        </div>
+        <div class="venda">
+            <li><a href="/vender" class="vender">Vender +</a></li>
+        </div>
+        <div class="user">
+            <li><img class="notif" src="{{ url_for('static', filename='fontawesome/svgs/regular/bell.svg') }}" alt="Notificações"></li>            
+            <li><img class="users" id="profileIcon" src="{{ url_for('static', filename='fontawesome/svgs/regular/circle-user.svg') }}" alt="Usuário"></li>
+        </div>
+    </nav>
+    <main>
+        <div class="categoria">
+            <div class="categoria-header">
+                <h1>Produtos recentes</h1>
+                <img src="{{ url_for('static', filename='fontawesome/svgs/solid/angle-down.svg')}}" alt="Mais">
+            </div>
+            <div class="produtos-recentes-slider">
+                <button class="slide-prev">&#10094;</button>
+                <div class="produtos-recentes">
+                    <ul>
+                        {% for product in products[:15] %}
+                        <li>
+                            <figure>
+                                <a href="/produto/{{ product.id }}" class="img">
+                                    <img src="data:image/png;base64,{{ product.image | to_base64 }}" alt="{{ product.name }}">
+                                </a>
+                                <figcaption>
+                                    <h2>{{ product.name }}</h2>
+                                    <p>{{ product.price }} kz</p>
+                                </figcaption>
+                            </figure>
+                        </li>        
+                        {% endfor %}            
+                    </ul>
+                </div>
+                <button class="slide-next">&#10095;</button>
+            </div>
+        </div>
+        {% for category, products in grouped_products.items() %}
+        <div class="categoria">
+            <div class="categoria-header">
+                <h1>{{ category }}</h1>
+                <img src="{{ url_for('static', filename='fontawesome/svgs/solid/angle-down.svg')}}" alt="Mais">
+            </div>
+            <div class="produtos-recentes-slider">
+                <button class="slide-prev" data-category="{{ category }}">&#10094;</button>
+                <div class="produtos-recentes" data-category="{{ category }}">
+                    <ul>
+                        {% for product in products[:15] %}
+                        <li>
+                            <figure>
+                                <a  href="produto/{{ product.id }}" class="img">
+                                    <img src="data:image/png;base64,{{ product.image | to_base64 }}" alt="{{ product.name }}">
+                                </a>
+                                <figcaption>
+                                    <h2>{{ product.name }}</h2>
+                                    <p>{{ product.price }} kz</p>
+                                </figcaption>
+                            </figure>
+                        </li>         
+                        {% endfor %}            
+                    </ul>
+                </div>
+                <button class="slide-next" data-category="{{ category }}">&#10095;</button>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

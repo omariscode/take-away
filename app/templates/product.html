@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Away</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/iconLogo.svg') }}" type="image/x-icon">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <nav class="navbar">
+        <div class="logos">
+            <div class="img"><img src="{{ url_for('static', filename='image/iconLogo.svg') }}" alt="Logo"></div>
+            <div class="logo">Take Away</div>            
+        </div>
+        {% if current_user.is_authenticated %}  
+        <div class="profile-menu" id="profileMenu">
+            <div class="formulario">
+                <p>{{ current_user.name }}</p>
+                <p>{{ current_user.email }}</p>
+                <a href="{{ url_for('profile_page', id=current_user.id) }}">Perfil</a>
+                <a href="#">Meus produtos</a>
+                <a href="#">Produtos gostados</a>
+                <a href="#">Notificação</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="profile-menu" id="profileMenu">
+            <div class="formulario">
+                <a href="#">Perfil</a>
+                <a href="#">Meus produtos</a>
+                <a href="#">Produtos gostados</a>
+                <a href="#">Notificação</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/loja">Loja</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#contact">Contactos</a></li>                
+            </ul>
+        </div>
+        <div class="venda">
+            <li><a href="/vender" class="vender">Vender +</a></li>
+        </div>
+        <div class="user">
+            <li><img class="notif" src="{{ url_for('static', filename='fontawesome/svgs/regular/bell.svg') }}" alt="Notificações"></li>            
+            <li><img class="users" id="profileIcon" src="{{ url_for('static', filename='fontawesome/svgs/regular/circle-user.svg') }}" alt="Usuário"></li>
+        </div>
+    </nav>
+    <main>
+        <section class="product-details">
+            <div class="product-image">
+                <img src="data:image/png;base64, {{ item.image | to_base64 }}" alt="{{ item.name }}">
+            </div>
+            <div class="product-info">
+                <h1>{{ item.name }}</h1>
+                <p class="price">{{ item.price }} kz</p>
+                <p class="description">{{ item.description }}</p>
+                <div class="button-group">
+                    <a class="buy-button" href="{{ url_for('notify', id=item.id) }}">Negociar</a>
+                    <a class="interesting-button" href="#">Interessante</a>
+                </div>
+                <br>
+                <br>
+                <br>
+                <p>Postado por: {{ item.seller.name }}</p>
+            </div>
+        </section>
+    </main>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="text/javascript">
+        var socket = io();
+
+        socket.emit('join', {'user_id': {{ item.seller_id | tojson }}});
+  
+        socket.on('notification', function(data) {
+            alert(data.message);
+        });
+    </script>
+
+</body>
+</html>

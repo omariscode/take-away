@@ -1,0 +1,16 @@
+<h1 style="color: #333; grid-column: span 2; font-size: 32px; margin-bottom: 30px;">Meus produtos</h1>
+<ul style='display:flex; padding 0; margin: 0; width: calc(5 * 250px); list-style: none;'>
+    {% for product in products %}
+    <li style='background-color: #fff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 1rem; margin-right: 1.5rem; flex: 0 0 250px;'>
+        <figure>                                                            
+            <a href="/produto/ {{ product.id }}" class="img" style='width: 100%; heigth: 200px; overflow: hidden'>
+                <img style='width:100%; heigth:100%; object-fit:cover; border-bottom: 2px solid #e0e0e0' src="data:image/png;base64,{{ product.image | to_base64 }}" alt="{{ product.name }}">
+            </a>
+            <figcaption style='padding: 1rem; text-align:center;'>
+                <h2 style='font-size: 1.5rem; color:#333; margin: 0 0 10px;'>{{ product.name }}</h2>
+                <p style='font-size:1.2rem; color: #777; margin:0;'>{{ product.price }} kz</p>
+            </figcaption>
+        </figure>
+    </li>           
+    {% endfor %}
+</ul>

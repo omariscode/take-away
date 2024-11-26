@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Screen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loading.css')}}">
+</head>
+<body>
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Carregando... Por favor, aguarde.</p>
+    </div>
+    <script src="{{ url_for('static', filename='js/loading.js')}}"></script>
+</body>
+</html>

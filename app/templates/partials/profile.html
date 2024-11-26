@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Away</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logos">
+            <div class="img"><img src="{{ url_for('static', filename='image/iconLogo.svg') }}" alt=""></div>
+            <div class="logo">Take Away</div>
+        </div>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/perfil/{{ user.id }}" hx-get="/perfil/{{ user.id  }}" hx-trigger="click" hx-target="#content" hx-swap="innerHTML" class="nav-link">Perfil</a></li>
+                <li><a href="/notificação" hx-get="/notificação" hx-trigger="click" hx-target="#content" hx-swap="innerHTML" class="nav-link">Notificação</a></li>
+                <li><a href="/meus-produtos" hx-get="/meus-produtos" hx-trigger="click" hx-target="#content" hx-swap="innerHTML" class="nav-link">Meus Produtos</a></li>
+                <li><a href="/produtos-gostados" hx-get="/produtos-gostados" hx-trigger="click" hx-target="#content" hx-swap="innerHTML" class="nav-link">Produtos Gostados</a></li>
+                <li><a href="/contact" hx-get="/contact" hx-trigger="click" hx-target="#content" hx-swap="innerHTML" class="nav-link">Contactos</a></li>
+            </ul>
+        </div>
+        <div class="volta">
+            <li><a href="/home" class="voltar">Voltar</a></li>
+        </div>
+    </nav>
+    <main>
+        <div id="content" class="profile-container">
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='fontawesome/svgs/regular/circle-user.svg') }}" alt="Profile Picture">
+            </div>
+            <h1>Perfil do usuario</h1>
+            <p><span>ID:</span> {{ user.id }}</p>
+            <p><span>Nome:</span> {{ user.name }}</p>
+            <p><span>Email:</span> {{ user.email }}</p>
+            <p><span>Telefone:</span> {{ user.phone_number }}</p>
+            <p><span>Juntou-se:</span> {{ user.join_date }}</p>
+        </div>
+    </main>
+    <script src="url_for('static', filename='js/profile.js  ')"></script>
+</body>
+</html>

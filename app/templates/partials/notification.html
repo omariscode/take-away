@@ -1,0 +1,15 @@
+<h1 style="color: #333; grid-column: span 2; font-size: 32px; margin-bottom: 30px;">Notificação</h1>
+<div style="max-width: 600px; margin: 20px auto;">
+    {% for notification in notifi %}
+    <div style="background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <p style="color: #333; font-size: 16px; font-weight: 500; margin-bottom: 10px;">{{ notification.message }}</p>
+            <p style="font-size: 14px; color: #777;">{{ notification.message_date.strftime('%d %B %Y, %H:%M') }}</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button style="background: none; border: none; color: #007bff; cursor: pointer; font-size: 14px;">Marcar como lida</button>
+            <button style="background: none; border: none; color: #dc3545; cursor: pointer; font-size: 14px;">Excluir</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>

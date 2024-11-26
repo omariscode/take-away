@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.logos{
+    display: flex;
+    align-items: center;
+}
+.logos .img img{
+    width: 50px;
+    height: 50px;
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-links ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+}
+
+
+.navbar-links li {
+    margin-left: 40px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.navbar-links a:hover {
+    color: orangered;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.user li img{
+    color: black;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.profile-menu{
+    position: fixed;
+    top: 80px;
+    right: 0;
+    display: none;
+}
+.profile-menu .formulario {
+    width: 250px;
+    margin-right: 20px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid black;
+}
+.profile-menu .formulario a {
+    float: left;
+    padding: 10px 1rem;
+    margin: 8px;
+    border-radius: 30px;
+    border: 1px solid orangered;
+    background-color: white;
+    font-size: 14px;
+    transform: translateY(-10px);
+    font-family: "inter-bold";
+    color: black;   
+}
+.profile-menu .formulario a:hover {
+    background-color: orangered;
+    color: white;
+}
+  
+
+a.vender {
+    width: 40px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid orangered;
+    border-radius: 4px;
+}
+a.vender:hover{
+    background-color: orangered;
+    color: white;
+}
+
+.login {
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.sell-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+.sell {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+    font-family: 'inter-regular';
+}
+.form-control, .form-control-file {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.form-control-file {
+    padding: 0.5rem;
+}
+.form-control:focus {
+    border-color: orangered;
+    outline: none;
+}
+.btn {
+    background-color: white;
+    color: black;
+    border: 1px solid orangered;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: orangered;
+    color: white;
+}
+.form-control-textarea {
+    height: 150px;
+}
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alert.success {
+    background-color: #28a745;
+}
+
+.alert.danger {
+    background-color: #dc3545;
+}
+
+.alert.info {
+    background-color: #17a2b8;
+}
+
+.flash-messages .alert-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.alert-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

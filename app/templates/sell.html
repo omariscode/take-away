@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Away</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sell.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/iconLogo.svg') }}" type="image/x-icon">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <nav class="navbar">
+        <div class="logos">
+            <div class="img"><img src="{{ url_for('static', filename='image/iconLogo.svg') }}" alt=""></div>
+            <div class="logo">Take Away</div>            
+        </div>
+        <div class="profile-menu">
+            <div class="formulario">
+                <a href="">Perfil</a>
+                <a href="">Meus produtos</a>
+                <a href="">Produtos gostados</a>
+                <a href="">Notificação</a>
+                <a href="">Logout</a>
+            </div>
+        </div>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="#">Loja</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#contact">Contactos</a></li>                
+            </ul>
+        </div>
+        <div class="venda">
+            <li><a href="/vender" class="vender">Vender +</a></li>
+        </div>
+        <div class="user">
+            <li><img class="notif" src="{{ url_for('static', filename='fontawesome/svgs/regular/bell.svg') }}" alt=""></li>            
+            <li><img class="users" src="{{ url_for('static', filename='fontawesome/svgs/regular/circle-user.svg') }}" alt=""></li>
+        </div>
+    </nav>
+    <main>
+        <div class="sell-container">
+            <div class="sell">
+                <h2>Seu produto</h2>
+                <form action="/vender" method="post" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form.image.label(class='form-label') }}
+                        {{ form.image(class='form-control-file') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.name.label(class='form-label') }}
+                        {{ form.name(class='form-control') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.price.label(class='form-label') }}
+                        {{ form.price(class='form-control') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.category.label(class='form-label') }}
+                        {{ form.category(class='form-control') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.description.label(class='form-label') }}
+                        {{ form.description(class='form-control form-control-textarea') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.submit(class='btn') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

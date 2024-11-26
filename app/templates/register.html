@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Away</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <div class="logos">
+        <div class="img"><img src="{{ url_for('static', filename='image/logo.svg') }}" alt=''></div>
+        <div class="text"><h1>Take Away</h1></div>
+    </div>
+    <div class="register-container">
+        <h2>Criar Conta</h2>
+        <form action="/register" method="post">
+            {{ form.hidden_tag() }}
+            <div class="input-group">                
+                {{ form.username.label() }}
+                {{ form.username(class='form-control', placeholder='Nome de úsuario')}}
+            </div>
+            <div class="input-group">
+                {{ form.email.label() }}
+                {{ form.email(class='form-control', placeholder='Seu Email') }}
+            </div>
+            <div class="input-group">
+                {{ form.phone_number.label() }}
+                {{ form.phone_number(class='form-control', placeholder='Seu número de telefone') }}
+            </div>   
+            <div class="input-group">
+                {{ form.password1.label() }}
+                {{ form.password1(class='form-control', placeholder='Crie sua senha')}}
+            </div>         
+            <div class="input-group">
+                {{ form.password2.label()}}
+                {{ form.password2(class='form-control', placeholder='Confirme sua senha')}}
+            </div>           
+            
+            {{ form.submit(class='btn-submit') }}
+        </form>
+        <p class="register-link">Já tem uma conta? <a href="/login">Faça login</a></p>
+    </div>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>
